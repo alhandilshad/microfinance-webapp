@@ -11,10 +11,10 @@ const page = () => {
   return (
     <>
     <Banner />
-    {/* <ServicesSection />
+    <ServicesSection />
     <AboutUs />
     <Facilities />
-    <AdvancedCare /> */}
+    <AdvancedCare />
     </>
   )
 }
