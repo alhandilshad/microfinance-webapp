@@ -12,13 +12,9 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { 
-  useAppContext } 
-  from "../context/useContext";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { webInfo } = useAppContext();
   const router = usePathname();
   const pathname = router ? router : 'Home';
 
@@ -132,7 +128,7 @@ export default function Header() {
               </li>
             ))}
           </ul> */}
-          <ul className={`${isMobileMenuOpen ? "block" : "hidden"} sm:flex absolute sm:relative top-full left-0 w-full sm:w-auto bg-[#00563B] sm:bg-transparent text-white sm:text-black`}>
+          {/* <ul className={`${isMobileMenuOpen ? "block" : "hidden"} sm:flex absolute sm:relative top-full left-0 w-full sm:w-auto bg-[#00563B] sm:bg-transparent text-white sm:text-black`}>
       {menuItems.map((item, index) => (
         <li key={index} className="sm:inline-block">
           <Link
@@ -149,7 +145,7 @@ export default function Header() {
             
         </li>
       ))}
-    </ul>
+    </ul> */}
 
           <div className="flex flex-col items-center sm:items-end">
             <div className="flex items-center mb-2">
@@ -161,7 +157,7 @@ export default function Header() {
                   CALL NOW FOR HELP
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  ({webInfo?.phone})
+                  (123456789)
                 </p>
               </div>
             </div>

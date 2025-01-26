@@ -1,38 +1,23 @@
+'use client';
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 export default function Banner() {
+    const router = useRouter();
   return (
-    <div className="relative w-full bg-white px-20 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 bg-[#8dc63f]">
-        <div className="flex flex-col lg:flex-row items-center justify-between py-12 lg:py-20 gap-8 lg:gap-12">
-          {/* Left content */}
-          <div className="flex-1 text-left">
-            <h1 className="text-4xl lg:text-5xl font-semibold tracking-tight">
-              <span className="text-white">Lessons and insights</span>
-              <br />
-              <span className="text-white">from 8 years</span>
-            </h1>
-            <p className="mt-6 text-white text-lg">
-              Where to grow your business as a photographer, site or social media?
-            </p>
-            <Button className="mt-8 bg-[#00563B] hover:bg-[#002D82] text-white px-8 py-2 h-auto text-base">
-              Register
+      <div className="mx-auto py-20 relative container p-6 md:text-left text-center flex h-[78vh] justify-center ">
+        <img className="absolute top-0 w-full h-full object-cover" src="https://www.khudii.com/wp-content/uploads/2024/01/2-9.png" alt="medical image"/>
+        <div className="inset-0 bg-black opacity-20 absolute"></div>
+        <div className="md:w-2/5 flex flex-col justify-center z-[5] h-full text-center">
+          <div className="">
+            <h1 className="text-4xl lg:text-5xl font-semibold tracking-tight text-white">Serving the best treatment since 1979</h1>
+            <p className="mt-6 text-white text-lg">Muhammadi Medical Trust Hospital is a trust based hospital which is rendering its services for all kinds of illness and especially for eyes related problems. They provide the service of surgery as well. Treatment over there is satisfactory and highly appreciable.</p>
+            <Button onClick={() => router.push('/Signup')} 
+            className="mt-8 bg-green-800 hover:bg-green-900 text-white px-8 py-2 h-auto text-base" >Register
             </Button>
           </div>
 
-          {/* Right illustration */}
-          <div className="flex-1 relative">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/c5ecd1d2-a974-4be9-b907-5eca48d91f22.jpg-Cs86iwnuMYaAu4bIjcBM8Bo8aQOuP1.jpeg"
-              alt="Banner illustration"
-              width={500}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
         </div>
       </div>
-    </div>
   )
 }
-

@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import localFont from "next/font/local";
-import { AppProvider } from "@/app/context/useContext";
-import ChatBot from "@/app/components/ChatBot";
 import toast, { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
@@ -75,15 +73,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppProvider>
           <Header />
-          <div className="relative">
+          <div>
             {children}
-            <ChatBot />
           </div>
           <Footer />
           <Toaster />
-        </AppProvider>
       </body>
     </html>
   );
