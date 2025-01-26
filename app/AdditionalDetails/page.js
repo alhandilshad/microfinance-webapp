@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../utils/firebaseConfig";
+import { auth, db } from "../utils/firebaseConfig";
 
 const AdditionalDetails = () => {
+    // const user = auth.currentUser;
   const router = useRouter();
   const { name } = useParams();
+  const [currentUser, setcurrentUser] = useState('');
   const [formData, setFormData] = useState({
     guarantor1: { name: "", email: "", location: "", cnic: "" },
     guarantor2: { name: "", email: "", location: "", cnic: "" },
@@ -16,6 +18,15 @@ const AdditionalDetails = () => {
     address: "",
     phoneNumber: "",
   });
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setcurrentUser(user);
+        }
+      });
+      return () => unsubscribe();
+}, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +81,8 @@ const AdditionalDetails = () => {
         ...formData,
         ...parsedData,
         ...slipDetails,
-        user: parsedUserData
+        userId: currentUser.uid,
+        status: 'pending'
       };
       addDoc(collection(db, "form"), data);
       Swal.fire(

@@ -135,7 +135,7 @@ const LoanSubmissionForm = () => {
             value={psw}
             onChange={(e) => setPsw(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-            placeholder="Enter your name"
+            placeholder="Enter your password"
           />
         </div>
 

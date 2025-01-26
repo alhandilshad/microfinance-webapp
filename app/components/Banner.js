@@ -1,8 +1,11 @@
 'use client';
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation";
+import { auth } from "../utils/firebaseConfig";
 
 export default function Banner() {
+    const user= auth.currentUser;
+    console.log(user, 'alhan');
     const router = useRouter();
   return (
       <div className="mx-auto py-20 relative container p-6 md:text-left text-center flex h-[78vh] justify-center ">

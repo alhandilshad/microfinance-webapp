@@ -22,13 +22,7 @@ export default function Header() {
 
   const menuItems = [
     { name: "Home", link: "/" },
-    { name: "About us", link: "/AboutUs" },
-    { name: "Services", link: "/Services" },
-    { name: "Appointments", link: "/Appointments" },
-    { name: "Doctors", link: "/Doctors" },
-    { name: "Events", link: "/Events" },
-    { name: "Our Staff", link: "/OurStaff" },
-    { name: "Contact Us", link: "/ContactUs" }
+    { name: "Application", link: "/IUserApplication" },
   ];
 
   const handleMenuClick = (menuName) => {
@@ -104,7 +98,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* <ul
+          <ul
             className={`${
               isMobileMenuOpen ? "block" : "hidden"
             } sm:flex absolute sm:relative top-full left-0 w-full sm:w-auto bg-[#00563B] sm:bg-transparent text-white sm:text-black`}
@@ -127,7 +121,7 @@ export default function Header() {
                 </Link>
               </li>
             ))}
-          </ul> */}
+          </ul>
           {/* <ul className={`${isMobileMenuOpen ? "block" : "hidden"} sm:flex absolute sm:relative top-full left-0 w-full sm:w-auto bg-[#00563B] sm:bg-transparent text-white sm:text-black`}>
       {menuItems.map((item, index) => (
         <li key={index} className="sm:inline-block">
