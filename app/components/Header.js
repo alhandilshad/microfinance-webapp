@@ -22,7 +22,7 @@ export default function Header() {
 
   const menuItems = [
     { name: "Home", link: "/" },
-    { name: "Application", link: "/IUserApplication" },
+    { name: "Application", link: "/UserApplication" },
   ];
 
   const handleMenuClick = (menuName) => {
