@@ -61,12 +61,16 @@ const AdditionalDetails = () => {
         },
       };
 
+      const userData = localStorage.getItem("userData");
+      const parsedUserData = userData ? JSON.parse(userData) : null;
+
       const localData = localStorage.getItem("formData");
       const parsedData = localData ? JSON.parse(localData) : {};
       const data = {
         ...formData,
         ...parsedData,
-        ...slipDetails
+        ...slipDetails,
+        user: parsedUserData
       };
       addDoc(collection(db, "form"), data);
       Swal.fire(
