@@ -7,6 +7,7 @@ import { handleSendEmail } from "../server/server";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../utils/firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import Link from "next/link";
 
 const LoanSubmissionForm = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const LoanSubmissionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.email || !psw) {
+    if (!email || !psw) {
       alert("Please fill in all fields");
       return;
     }
@@ -31,9 +32,9 @@ const LoanSubmissionForm = () => {
     // };
 
     try {
-        signInWithEmailAndPassword(auth, formData.email, psw)
+        signInWithEmailAndPassword(auth, email, psw)
         .then((response) => {
-          navigate('/home');
+          router.push('/');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -89,6 +90,10 @@ const LoanSubmissionForm = () => {
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             placeholder="Enter your name"
           />
+        </div>
+
+        <div className="flex">
+          <h1>Don't have an account ? <Link href='Signup'>Sign Up</Link></h1>
         </div>
 
         <Button type="submit">Submit</Button>

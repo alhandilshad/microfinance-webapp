@@ -13,8 +13,8 @@ export default function Banner() {
         <div className="inset-0 bg-black opacity-20 absolute"></div>
         <div className="md:w-2/5 flex flex-col justify-center z-[5] h-full text-center">
           <div className="">
-            <h1 className="text-4xl lg:text-5xl font-semibold tracking-tight text-white">Serving the best treatment since 1979</h1>
-            <p className="mt-6 text-white text-lg">Muhammadi Medical Trust Hospital is a trust based hospital which is rendering its services for all kinds of illness and especially for eyes related problems. They provide the service of surgery as well. Treatment over there is satisfactory and highly appreciable.</p>
+            <h1 className="text-4xl lg:text-5xl font-semibold tracking-tight text-white">Saylani Microfinance WebApp</h1>
+            <p className="mt-6 text-white text-lg">Saylani is a trust based hospital which is rendering its services for all kinds of illness and especially for eyes related problems. They provide the service of surgery as well. Treatment over there is satisfactory and highly appreciable.</p>
             <Button onClick={() => router.push('/Signup')} 
             className="mt-8 bg-green-800 hover:bg-green-900 text-white px-8 py-2 h-auto text-base" >Register
             </Button>

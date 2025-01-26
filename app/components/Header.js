@@ -22,7 +22,8 @@ export default function Header() {
 
   const menuItems = [
     { name: "Home", link: "/" },
-    { name: "Application", link: "/UserApplication" },
+    { name: "Application", link: "/UserApplications" },
+    { name: "Loan Calculator", link: "/LoanCalculator" },
   ];
 
   const handleMenuClick = (menuName) => {
@@ -122,24 +123,6 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          {/* <ul className={`${isMobileMenuOpen ? "block" : "hidden"} sm:flex absolute sm:relative top-full left-0 w-full sm:w-auto bg-[#00563B] sm:bg-transparent text-white sm:text-black`}>
-      {menuItems.map((item, index) => (
-        <li key={index} className="sm:inline-block">
-          <Link
-            href={item.link}
-            onClick={() => handleMenuClick(item.name)}
-            className={`block px-4 py-2 md:rounded-3xl hover:bg-[#8dc63f] hover:text-white duration-300 ${
-              pathname === item.link
-                ? "bg-[#8dc63f] md:bg-[#8dc63f] md:text-white text-white sm:text-[#8dc63f]"
-                : ""
-            }`}
-          >
-            {item.name}
-          </Link>
-            
-        </li>
-      ))}
-    </ul> */}
 
           <div className="flex flex-col items-center sm:items-end">
             <div className="flex items-center mb-2">

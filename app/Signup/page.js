@@ -7,6 +7,7 @@ import { handleSendEmail } from "../server/server";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../utils/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Link from "next/link";
 
 const LoanSubmissionForm = () => {
   const router = useRouter();
@@ -46,7 +47,11 @@ const LoanSubmissionForm = () => {
       createUserWithEmailAndPassword(auth, formData.email, psw)
         .then((userCredential) => {
           const user = userCredential.user;
-          addDoc(collection(db, "users"), formData);
+          const data = {
+            ...formData,
+            uid: user.uid,
+          }
+          addDoc(collection(db, "users"), data);
           localStorage.setItem("user", formData);
           alert("Data saved successfully!");
         //   handleSendEmail(formData.email, psw);
@@ -137,6 +142,10 @@ const LoanSubmissionForm = () => {
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             placeholder="Enter your password"
           />
+        </div>
+
+        <div className="flex">
+          <h1>Already have an account ? <Link href='/Login'>Login</Link></h1>
         </div>
 
         <Button type="submit">Submit</Button>
