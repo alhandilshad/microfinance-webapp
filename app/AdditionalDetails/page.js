@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "../utils/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 
 const AdditionalDetails = () => {
     // const user = auth.currentUser;
